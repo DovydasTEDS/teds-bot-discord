@@ -5,6 +5,21 @@ from disnake.ext import commands
 import sys
 from enum import Enum
 from dotenv import load_dotenv
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Hello. I am alive!"
+
+def run():
+  app.run(host='0.0.0.0',port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 
 load_dotenv()
 
@@ -86,4 +101,5 @@ async def teamteds(inter):
 async def socials(inter: disnake.ApplicationCommandInteraction, socials: TEDSSocials):
     await inter.response.send_message(socials)
 
+keep_alive()
 bot.run(os.getenv("DISCORD_TOKEN"))
