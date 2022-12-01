@@ -1,2 +1,5 @@
 bottoken
 bot-env
+inviteurl
+__pycache__
+.env
