@@ -29,7 +29,7 @@ intents = disnake.Intents.all()
 
 bot = commands.Bot(
     command_prefix='!',
-    test_guilds=[545669263994650625],
+    test_guilds=[545669263994650625, 835466417448812566],
     intents=intents,
 )
 
